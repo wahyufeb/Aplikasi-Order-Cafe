@@ -1,0 +1,95 @@
+@media only screen and (max-width : 480px){
+  header{
+    height: 60px;
+    background-color: #745ED2;
+    position:fixed;
+    width: 100%;
+    z-index: 5;
+  }
+  .container{
+    background-color: #ECECEC;
+  }
+
+  .banner-section{
+    margin-top: 80px;
+  }
+  .banner{
+    height: 100px;
+    background-color: orange;
+    border-radius: 10px;
+  }
+
+  .sort-section{
+    margin-top: 20px;
+  }
+  .sort{
+    background-color: #fff;
+    border-radius: 10px;
+    height: 75px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
+
+  /* List Produk */
+  #list-produk{
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 0px;
+    padding-top: 30px;
+    border-radius: 10px;
+  }
+  /* produk */
+  .produk {
+    margin-bottom: 20px;
+  }
+  .produk img{
+    border-radius: 10px;
+  }
+  .produk p {
+    margin-top: -10px;
+  }
+
+  /* sort  */
+  #sort-button{
+    margin-top: -15px;
+  }
+
+  #sorting{
+    margin-left: -20px;
+    margin-top: 5px;
+    background-color: grey;
+    padding: 6px;
+    border-radius: 10px;
+  }
+
+  #inlineFormCustomSelectPref{
+    border: 2px solid #745ED2;
+    border-radius: 10px;
+  }
+  #inlineFormCustomSelectPref option{
+    background-color: #fff;
+  }
+
+  /* submit button */
+  #submit{
+    background: linear-gradient(270deg, #5A3BDF 1.79%, rgba(158, 113, 242, 0.260417) 184.36%, rgba(58, 19, 229, 0) 184.37%);
+    border-radius: 20px;
+    padding: 10px;
+    color: #fff;
+    margin-left: -20px;
+  }
+  
+}
+@media only screen and (max-width : 420px){
+
+}
+@media only screen and (max-width : 360px){
+  #sorting img{
+    height: 20px;
+  }
+
+  .produk p{
+    font-size: 13px;
+  }
+}
