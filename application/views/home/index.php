@@ -34,6 +34,10 @@
     </div>
     <main class="bmd-layout-content">
       <div class="container">
+        <div class="search-input">
+          <input type="text" placeholder="cari makanan atau minuman..." autocomplete="off" autofocus>
+          <img src="<?= base_url() ?>assets/icon/close.png" alt="close" width="12" id="close-btn">
+        </div>
         <header>
           <div class="svg-menu">
             <img src="<?= base_url() ?>assets/icon/left1.svg" alt="left-side" id="svg-left">
@@ -49,12 +53,14 @@
               <div class="logo" style="color:#fff;font-family:Poppins-Medium">CafeX</div>
             </div>
             <div class="col-2 col-sm-2 offset-4">
-              <div class="search-icon"><img src="<?= base_url() ?>assets/icon/search.png" alt="search" width="24"></div>
+              <div class="search-icon" id="search-icon"><img src="<?= base_url() ?>assets/icon/search.png" alt="search"
+                  width="24"></div>
             </div>
           </div>
         </header>
         <main>
           <div class="hero">
+            <img src="<?= base_url() ?><?= $all_menu[0]['image'] ?>" alt="">
             <!-- hero image -->
             <div class="typo">
               <h5>Beli Sekarang</h5>
@@ -88,14 +94,11 @@
                 <h6 class="text-center">Coffee</h6>
                 <p class="text-center">Rp. 20.000</p>
               </div>
-              <div class="produk">
-                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
-                <h6 class="text-center">Coffee</h6>
-                <p class="text-center">Rp. 20.000</p>
-              </div>
             </div>
           </div>
-        </section>
+      </div>
+      </section>
+      <div class="container">
         <section>
           <!-- Set up for Caraousel -->
           <div class="caraousel2">
@@ -126,27 +129,21 @@
                 <h6 class="text-center">Coffee</h6>
                 <p class="text-center">Rp. 20.000</p>
               </div>
+              <div class="produk">
+                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
+                <h6 class="text-center">Coffee</h6>
+                <p class="text-center">Rp. 20.000</p>
+              </div>
+              <div class="produk">
+                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
+                <h6 class="text-center">Coffee</h6>
+                <p class="text-center">Rp. 20.000</p>
+              </div>
             </div>
           </div>
         </section>
-        <div class="footer">
-          <div class="circle-cart">
-            <img src="<?= base_url() ?>assets/icon/cart.png" alt="cart" width="32">
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <a href="<?= base_url() ?>index.php/ListProduk">
-                <p><img src="<?= base_url() ?>assets/icon/makanan.png" alt="makanan" width="32"></p>
-                <span>makanan</span>
-              </a>
-            </div>
-            <div class="col-6">
-              <p><img src="<?= base_url() ?>assets/icon/minuman.png" alt="minuman" width="32"></p>
-              <span>minuman</span>
-            </div>
-          </div>
-        </div>
       </div>
+  </div>
   </div>
   </main>
   </div>
@@ -157,10 +154,20 @@
     crossorigin="anonymous"></script>
   <script src="<?= base_url() ?>assets/materialdesign/js/bootstrap-material-design.min.js"></script>
   <script src="<?= base_url() ?>assets/owl/js/owl.carousel.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/search.js"></script>
   <script>
     $(document).ready(function () {
       $('body').bootstrapMaterialDesign();
-      $(".owl-carousel").owlCarousel();
+      $(".owl-carousel").owlCarousel({
+        items: 3,
+        autoPlay: 5000,
+        navigation: true,
+        stagePadding: 10, //padding in pixels
+        smartSpeed: 400,
+        // navigationText: true,
+        // nav: true,
+        // navText: ["prev", "go"]
+      });
     });
   </script>
 </body>

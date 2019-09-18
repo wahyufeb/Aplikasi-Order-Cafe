@@ -14,13 +14,35 @@
 
 <body>
   <header>
-    search
+    <div class="container">
+      <input type="text" id="search" placeholder="cari makanan ...">
+    </div>
   </header>
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-12 banner-section">
         <div class="banner">
-          BANNER
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="<?= base_url() ?>assets/img/hero1.jpg" height="160" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="<?= base_url() ?>assets/img/hero1.jpg" height="160" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="<?= base_url() ?>assets/img/hero1.jpg" height="160" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
         </div>
       </div>
       <div class="col-sm-12 col-12 sort-section">
@@ -48,52 +70,21 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container" id="container-produk">
       <div class="row" id="list-produk">
+        <?php foreach($getProdukKategori as $row): ?>
         <div class="col-sm-4 col-4">
           <div class="produk">
-            <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero" width="100%" height="100%">
-            <h6 class="text-center">Coffee</h6>
-            <p class="text-center">Rp. 20.000</p>
+            <a href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row['kode_menu'] ?>">
+                <img src="<?= base_url() ?><?= $row['image'] ?>" alt="hero" width="100%">
+              </a>
+              <h6 class="text-center"><a href="<?= base_url() ?>index.php/DetailProduct/index/<?= $row['kode_menu'] ?>"><?= $row['nama'] ?></a></h6>
+              <p class="text-center">Rp. <?= number_format($row['harga'],0,',','.') ?></p>
+            </div>
           </div>
-        </div>
-        <div class="col-sm-4 col-4">
-          <div class="produk">
-            <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero" width="100%" height="100%">
-            <h6 class="text-center">Coffee</h6>
-            <p class="text-center">Rp. 20.000</p>
-          </div>
-        </div>
-        <div class="col-sm-4 col-4">
-          <div class="produk">
-            <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero" width="100%" height="100%">
-            <h6 class="text-center">Coffee</h6>
-            <p class="text-center">Rp. 20.000</p>
-          </div>
-        </div>
-        <div class="col-sm-4 col-4">
-          <div class="produk">
-            <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero" width="100%" height="100%">
-            <h6 class="text-center">Coffee</h6>
-            <p class="text-center">Rp. 20.000</p>
-          </div>
-        </div>
-        <div class="col-sm-4 col-4">
-          <div class="produk">
-            <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero" width="100%" height="100%">
-            <h6 class="text-center">Coffee</h6>
-            <p class="text-center">Rp. 20.000</p>
-          </div>
-        </div>
-        <div class="col-sm-4 col-4">
-          <div class="produk">
-            <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero" width="100%" height="100%">
-            <h6 class="text-center">Coffee</h6>
-            <p class="text-center">Rp. 20.000</p>
-          </div>
-        </div>
-      </div>
+        <?php endforeach; ?>
     </div>
+  </div>
   </div>
 
   <script src="<?= base_url() ?>assets/jquery/jquery.min.js"></script>

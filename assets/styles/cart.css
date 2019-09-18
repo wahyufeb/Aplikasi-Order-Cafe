@@ -1,0 +1,166 @@
+@font-face{
+  font-family: 'Poppins-Medium';
+  src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face{
+  font-family: 'Poppins-Light';
+  src: url('../fonts/poppins/Poppins-Light.ttf');
+}
+
+body{
+  background-color: #F5F5F5;
+}
+@media only screen and (max-width:480px){
+  h5.keranjang{
+    font-weight: 500;
+  }
+  .orders{
+    background-color: #FFF;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins-Medium';
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  /* List Product */
+  .img-menu img{
+    border-radius: 10px;
+  }
+  .detail .name{
+    font-size: 20px;
+    font-family: 'Poppins-Light';
+  }
+  .detail .price{
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .catatan h6{
+    font-size: 12px;
+  }
+
+  .qty{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+  }
+  
+  .min, .total-qty, .add{
+    color: #fff;
+    width: 20px;
+    height: 100%;
+    background-color: #745ED2;
+  }
+  .min{
+    border-radius: 5px 0 0 5px;
+  }
+  .add{
+    border-radius: 0 5px 5px 0;
+  }
+  .total-qty{
+    color: #000;
+    background-color: #fff;
+  }
+
+
+
+  .catatan{
+    font-size: 10px;
+    padding: 5px;
+    background-color: #745ED2;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: #fff;
+  }
+
+  .close{
+    background-color: #fff;
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    z-index: 10;
+  }
+
+  .close img{
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  .close a:hover{
+    cursor: pointer;
+  }
+
+  footer{
+    background: #FFFFFF;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    line-height: 50px;
+    padding: 3px;
+    box-sizing: border-box;
+  }
+  footer .total{
+    font-family: 'Poppins-Medium';
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    color: rgba(99, 80, 181, 0.83);
+  }
+  footer .btn-bayar{
+    background-color: #745ED2;
+    border-radius: 7px;
+    width: 100px;
+    color: #fff;
+    height: 30px;
+    line-height: 15px;
+  }
+}
+
+@media only screen and (max-width:430px){
+  /* List Product */
+  .img-menu img{
+    width: 80px;
+    border-radius: 10px;
+  }
+  .detail .name{
+    font-size: 18px;
+  }
+  .detail .price{
+    font-size: 14px;
+  }
+  .catatan h6{
+    font-size: 12px;
+  }
+  .catatan{
+    font-size: 10px;
+    padding: 3px;
+  }
+}
+
+@media only screen and (max-width:360px){
+  /* List Product */
+  .img-menu img{
+    width: 70px;
+    border-radius: 5px;
+  }
+  .detail .name{
+    font-size: 16px;
+  }
+  .detail .price{
+    font-size: 12px;
+  }
+  .catatan h6{
+    font-size: 10px;
+  }
+  .catatan{
+    font-size: 8px;
+    padding: 3px;
+  }
+}
