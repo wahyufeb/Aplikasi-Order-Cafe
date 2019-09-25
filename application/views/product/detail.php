@@ -15,7 +15,7 @@
 <body>
   <header>
     <div class="hero-product">
-      <img src="<?= base_url() ?><?= $getProdukId[0]['image'] ?>" alt="image-product" width="100%">
+      <img src="<?= base_url() ?>uploads/<?= $getProdukId[0]['image'] ?>" alt="image-product" width="100%">
     </div>
   </header>
   <div class="container">
@@ -94,7 +94,7 @@
           <div class="row">
             <div class="col-sm-4 col-4">
               <div class="img-menu">
-                <img src="<?= base_url() ?><?= $getProdukId[0]['image'] ?>" alt="menu-orders" width="90" height="70">
+                <img src="<?= base_url() ?>uploads/<?= $getProdukId[0]['image'] ?>" alt="menu-orders" width="90" height="70">
               </div>
             </div>
             <div class="col-sm-8 col-8">

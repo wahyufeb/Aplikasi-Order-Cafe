@@ -23,7 +23,11 @@ class Home extends CI_Controller {
   
   public function index()
   {
+    $where = array('kategori' => 'minuman');
+    $where2 = array('kategori' => 'makanan');
     $data['all_menu'] = $this->M_All->getAll('menu')->result_array();
+    $data['makananlaku'] = $this->M_Home->getLakuKategori($where2, 'menu')->result_array();
+    $data['minumanlaku'] = $this->M_Home->getLakuKategori($where, 'menu')->result_array();
     $this->load->view('home/index', $data);
     $this->footer();
   }

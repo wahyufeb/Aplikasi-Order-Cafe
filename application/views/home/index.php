@@ -13,6 +13,8 @@
   <!-- owl css -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/owl/css/owl.carousel.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/owl/css/owl.theme.default.css">
+  <!-- sweetalert -->
+  <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert/sweetalert2.min.css">
 </head>
 
 <body>
@@ -59,14 +61,17 @@
           </div>
         </header>
         <main>
+        <div id="checkout" data-alert="<?= $this->session->flashdata('notif');?>"></div>
           <div class="hero">
-            <img src="<?= base_url() ?><?= $all_menu[0]['image'] ?>" alt="">
+            <?php foreach($all_menu as $row): ?>
+              <img src="<?= base_url() ?>uploads/<?= $row['image'] ?>" alt="">
+            <?php endforeach; ?>
             <!-- hero image -->
-            <div class="typo">
+            <!-- <div class="typo">
               <h5>Beli Sekarang</h5>
               <h4>Diskon</h4>
               <h6>20 %</h6>
-            </div>
+            </div> -->
           </div>
         </main>
         <section>
@@ -74,26 +79,15 @@
           <div class="caraousel">
             <h6>Makanan paling laku</h6>
             <div class="owl-carousel">
+              <?php foreach($makananlaku as $row): ?>
               <div class="produk">
-                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
-                <h6 class="text-center">Coffee</h6>
-                <p class="text-center">Rp. 20.000</p>
+                <a href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row['kode_menu'] ?>">
+                  <img src="<?= base_url() ?>uploads/<?= $row['image'] ?>" alt="hero" height="70">
+                </a>
+                <h6 class="text-center"><a href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row['kode_menu'] ?>"><?= $row['nama'] ?></a></h6>
+                <p class="text-center">Rp. <?= number_format($row['harga'],0,',','.')?></p>
               </div>
-              <div class="produk">
-                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
-                <h6 class="text-center">Coffee</h6>
-                <p class="text-center">Rp. 20.000</p>
-              </div>
-              <div class="produk">
-                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
-                <h6 class="text-center">Coffee</h6>
-                <p class="text-center">Rp. 20.000</p>
-              </div>
-              <div class="produk">
-                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
-                <h6 class="text-center">Coffee</h6>
-                <p class="text-center">Rp. 20.000</p>
-              </div>
+              <?php endforeach; ?>
             </div>
           </div>
       </div>
@@ -104,41 +98,15 @@
           <div class="caraousel2">
             <h6>Minuman paling laku</h6>
             <div class="owl-carousel">
+              <?php foreach($minumanlaku as $row): ?>
               <div class="produk">
-                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
-                <h6 class="text-center">Coffee</h6>
-                <p class="text-center">Rp. 20.000</p>
+              <a href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row['kode_menu'] ?>">
+                <img src="<?= base_url() ?>uploads/<?= $row['image'] ?>" alt="hero" height="70">
+              </a>
+                <h6 class="text-center"><a href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row['kode_menu'] ?>"><?= $row['nama'] ?></a></h6>
+                <p class="text-center">Rp. <?= number_format($row['harga'],0,',','.')?></p>
               </div>
-              <div class="produk">
-                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
-                <h6 class="text-center">Coffee</h6>
-                <p class="text-center">Rp. 20.000</p>
-              </div>
-              <div class="produk">
-                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
-                <h6 class="text-center">Coffee</h6>
-                <p class="text-center">Rp. 20.000</p>
-              </div>
-              <div class="produk">
-                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
-                <h6 class="text-center">Coffee</h6>
-                <p class="text-center">Rp. 20.000</p>
-              </div>
-              <div class="produk">
-                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
-                <h6 class="text-center">Coffee</h6>
-                <p class="text-center">Rp. 20.000</p>
-              </div>
-              <div class="produk">
-                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
-                <h6 class="text-center">Coffee</h6>
-                <p class="text-center">Rp. 20.000</p>
-              </div>
-              <div class="produk">
-                <img src="<?= base_url() ?>assets/img/hero1.jpg" alt="hero">
-                <h6 class="text-center">Coffee</h6>
-                <p class="text-center">Rp. 20.000</p>
-              </div>
+              <?php endforeach; ?>
             </div>
           </div>
         </section>
@@ -155,6 +123,7 @@
   <script src="<?= base_url() ?>assets/materialdesign/js/bootstrap-material-design.min.js"></script>
   <script src="<?= base_url() ?>assets/owl/js/owl.carousel.min.js"></script>
   <script src="<?= base_url() ?>assets/js/search.js"></script>
+  <script src="<?= base_url() ?>assets/sweetalert/sweetalert2.all.min.js"></script>
   <script>
     $(document).ready(function () {
       $('body').bootstrapMaterialDesign();
@@ -168,6 +137,12 @@
         // nav: true,
         // navText: ["prev", "go"]
       });
+
+      const alert  = $('#checkout').data('alert');
+      console.log(alert);
+      if(alert == "success"){
+        Swal.fire("Pesanan Sukses", "silahkan tunggu konfirmasi pesanan", "success");
+      }
     });
   </script>
 </body>

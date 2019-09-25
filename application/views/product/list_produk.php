@@ -76,9 +76,9 @@
         <div class="col-sm-4 col-4">
           <div class="produk">
             <a href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row['kode_menu'] ?>">
-                <img src="<?= base_url() ?><?= $row['image'] ?>" alt="hero" width="100%">
+                <img src="<?= base_url() ?>uploads/<?= $row['image'] ?>" alt="hero" width="100%">
               </a>
-              <h6 class="text-center"><a href="<?= base_url() ?>index.php/DetailProduct/index/<?= $row['kode_menu'] ?>"><?= $row['nama'] ?></a></h6>
+              <h6 class="text-center"><a href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row['kode_menu'] ?>"><?= $row['nama'] ?></a></h6>
               <p class="text-center">Rp. <?= number_format($row['harga'],0,',','.') ?></p>
             </div>
           </div>

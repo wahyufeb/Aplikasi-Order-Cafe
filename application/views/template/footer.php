@@ -1,7 +1,9 @@
 <div class="footer">
+  <a href="<?= base_url() ?>index.php/Cart">
   <div class="circle-cart">
     <img src="<?= base_url() ?>assets/icon/cart.png" alt="cart" width="32">
   </div>
+  </a>
   <div class="row">
     <div class="col-6">
       <a href="<?= base_url() ?>index.php/ListProduk/kategori/makanan">
