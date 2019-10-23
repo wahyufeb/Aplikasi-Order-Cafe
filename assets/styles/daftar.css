@@ -1,0 +1,54 @@
+@font-face {
+	font-family: "Poppins-Medium";
+	src: url("../fonts/poppins/Poppins-Medium.ttf");
+}
+
+@font-face {
+	font-family: "Poppins-Light";
+	src: url("../fonts/poppins/Poppins-Light.ttf");
+}
+
+.header {
+	background-color: #745ed2;
+	height: 140px;
+}
+
+.header h5 {
+	color: #fff;
+	font-family: "Poppins-Medium";
+	line-height: 60px;
+}
+
+.form-daftar {
+	padding: 20px !important;
+	margin-top: -70px;
+	background-color: #fff;
+	border-radius: 15px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+	padding: 5px;
+}
+
+#daftar {
+	width: 100%;
+	border: none;
+	color: #fff;
+	background-color: #745ed2;
+	padding: 7px;
+	border-radius: 10px;
+	font-family: "Poppins-Medium";
+}
+
+form label {
+	opacity: 0.8;
+	font-family: "Poppins-Light";
+}
+
+#mess {
+	font-size: 12px;
+}
+
+@media only screen and (max-width: 480px) {
+	form label {
+		font-size: 14px;
+	}
+}

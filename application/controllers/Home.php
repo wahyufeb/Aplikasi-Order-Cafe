@@ -7,6 +7,9 @@ class Home extends CI_Controller {
   public function __construct()
   {
     parent::__construct();
+    if($this->session->userdata('level') != "member"){
+      redirect('Account/Login');
+    }
     // General Query
     //Model
     $this->load->model('M_All');

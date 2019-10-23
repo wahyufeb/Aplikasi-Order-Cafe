@@ -89,8 +89,7 @@ class Cart extends CI_Controller {
   public function checkout(){
     date_default_timezone_set('Asia/Bangkok');
     $invoices = array(
-      'id_user' => 1,
-      // 'id_user' => $this->session->userdata('id_user'),
+      'id_user' => $this->session->userdata('id_user'),
       'tanggal' => date('d-m-Y H:i:s'),
       'no_meja' => $this->input->post('no_meja'),
       'status' => 'belum dibayar',

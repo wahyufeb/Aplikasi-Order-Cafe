@@ -24,7 +24,7 @@
   }
   .banner{
     height: 160px;
-    background-color: orange;
+    background-color: transparent;
     border-radius: 10px;
   }
   .banner img{
