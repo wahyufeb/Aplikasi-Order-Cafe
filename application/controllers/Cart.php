@@ -55,7 +55,7 @@ class Cart extends CI_Controller {
                     'qty' => 0
     );
     $this->cart->update($where);
-    redirect('Cart');
+    redirect('Keranjang');
   }
 
   public function addQty($rowid, $qty, $image, $catatan){
@@ -69,7 +69,7 @@ class Cart extends CI_Controller {
       )
     );
     $this->cart->update($data);
-    redirect('Cart');
+    redirect('Keranjang');
   }
 
   public function minQty($rowid, $qty, $image, $catatan){
@@ -83,7 +83,7 @@ class Cart extends CI_Controller {
       )
     );
     $this->cart->update($data);
-    redirect('Cart');
+    redirect('Keranjang');
   }
 
   public function checkout(){
@@ -112,7 +112,7 @@ class Cart extends CI_Controller {
     $pusher->trigger('my-channel', 'my-event', $data);
     $this->M_Cart->orders($invoices, 'invoices');
     $this->session->set_flashdata('notif', 'notif');
-    redirect('Home/index');
+    redirect('Keranjang');
   }
 
 }

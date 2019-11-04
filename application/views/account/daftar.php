@@ -25,7 +25,7 @@
 		<div class="container">
 			<div class="form-daftar">
 				<form
-					action="<?= base_url() ?>index.php/Account/Registration/register_process"
+					action="<?= base_url() ?>index.php/Daftar/daftar_sekarang"
 					method="POST"
 				>
 					<div class="row">
@@ -115,7 +115,7 @@
 				<br />
 				<p class="text-center">
 					Sudah punya akun? silahkan <br /><a
-						href="<?= base_url() ?>index.php/Account/Login"
+						href="<?= base_url() ?>index.php/Auth/Masuk"
 						><b>login</b></a
 					>
 				</p>

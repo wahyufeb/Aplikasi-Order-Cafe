@@ -12,6 +12,7 @@
 		/>
 		<!-- css -->
 		<link rel="stylesheet" href="<?= base_url() ?>assets/styles/cart.css" />
+		<link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert/sweetalert2.min.css">
 	</head>
 
 	<body>
@@ -202,5 +203,31 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="<?= base_url() ?>assets/materialdesign/js/bootstrap-material-design.min.js"></script>
+		<script src="<?= base_url() ?>assets/sweetalert/sweetalert2.all.min.js"></script>
+		<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+		<script>
+			$(documet).ready(function(){
+				// Enable pusher logging - don't include this in production
+				Pusher.logToConsole = true;
+
+				var pusher = new Pusher("b8a3021cab51c9711d9b", {
+					cluster: "ap1",
+					forceTLS: true
+				});
+
+				var channel = pusher.subscribe("my-channel");
+				channel.bind("konfirmasi", function (data) {
+					if (data.message === "konfimasi-ok") {
+						Swal.fire({
+							type: 'success',
+							title: 'Terimakasih',
+							text:'Pesananmu sudah dikonfirmasi, silahkan ditunggu',
+							showConfirmButton: false,
+							timer: 2000
+						})
+					}
+				});
+			})
+		</script>
 	</body>
 </html>

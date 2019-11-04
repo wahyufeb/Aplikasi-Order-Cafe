@@ -18,6 +18,16 @@ class M_All extends CI_Model {
     return $this->db->insert($table, $data);
   }
 
+  function update_data($where, $data, $table){
+    $this->db->where($where);
+    return $this->db->update($table, $data); 
+  }
+
+  function delete($where, $table){
+    $this->db->where($where);
+    return $this->db->delete($table);
+  }
+
 }
 
 /* End of file M_All.php */

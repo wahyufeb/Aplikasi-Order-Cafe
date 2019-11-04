@@ -93,7 +93,7 @@
 					<div class="sort">
 						<p style="opacity:.7;">urut berdasarkan</p>
 						<form
-							action="<?= base_url() ?>index.php/ListProduk/filter"
+							action="<?= base_url() ?>index.php/DaftarProduk/filter"
 							method="POST"
 						>
 							<div class="row" id="sort-button">
@@ -133,7 +133,7 @@
 					<div class="col-sm-4 col-4">
 						<div class="produk">
 							<a
-								href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row->kode_menu ?>"
+								href="<?= base_url() ?>index.php/DetailProduk/detail/<?= $row->kode_menu ?>"
 							>
 								<img
 									src="<?= base_url() ?>uploads/<?= $row->image ?>"
@@ -143,7 +143,7 @@
 							</a>
 							<h6 class="text-center">
 								<a
-									href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row->kode_menu ?>"
+									href="<?= base_url() ?>index.php/DetailProduk/detail/<?= $row->kode_menu ?>"
 									><?= $row->nama ?></a
 								>
 							</h6>

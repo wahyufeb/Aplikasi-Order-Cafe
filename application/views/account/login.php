@@ -44,7 +44,7 @@
 		</div>
 		<div class="container">
 			<h1>LOGIN</h1>
-			<form action="<?= base_url() ?>index.php/Account/Login/login_process" method="POST">
+			<form action="<?= base_url() ?>index.php/Masuk/masuk_sekarang" method="POST">
 				<div class="form-group">
 					<label for="Email">Email</label>
 					<input
@@ -65,6 +65,7 @@
 						name="password"
 					/>
 				</div>
+				<h6 style="font-size:14px;font-weight:normal;">Belum punya Akun? Silahkan <a href="<?= base_url() ?>index.php/Auth/Daftar">Daftar</a></h6>
 				<div class="login-btn">
 					<button class="btn login">LOGIN</button>
 				</div>
@@ -82,6 +83,21 @@
 	<script src="<?= base_url() ?>assets/sweetalert/sweetalert2.all.min.js"></script>
 	<script>
 		$(document).ready(function() {
+			document.addEventListener("contextmenu", function(e){
+					e.preventDefault();
+			}, false);
+			document.onkeydown = function(e) {
+				if (e.ctrlKey && 
+						(e.keyCode === 67 || 
+						e.keyCode === 86 || 
+						e.keyCode === 85 || 
+						e.keyCode === 117)) {
+						alert('not allowed');
+						return false;
+				} else {
+						return true;
+				}
+			};
 			$("body").bootstrapMaterialDesign();
 		});
 	</script>

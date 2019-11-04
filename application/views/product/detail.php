@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="<?= base_url() ?>assets/materialdesign/css/bootstrap-material-design.min.css">
   <!-- css -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/styles/detail.css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert/sweetalert2.min.css">
 </head>
 
 <body>
@@ -149,9 +150,9 @@
     integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
     crossorigin="anonymous"></script>
   <script src="<?= base_url() ?>assets/materialdesign/js/bootstrap-material-design.min.js"></script>
+  <script src="<?= base_url() ?>assets/sweetalert/sweetalert2.all.min.js"></script>
   <script>
     $(document).ready(() => {
-      console.log('Jquery is running...')
       let qty = $('.total-qty').data('qty')
       let harga = $('.total-qty').data('total')
       $('input[name="harga"]').val(harga);
@@ -174,7 +175,6 @@
         qty = 1
         $('.total-qty').attr('data-qty', qty)
         $('.total-qty').text(qty)
-        console.log("OK")
         hitungAll(harga, qty)
       }
       $('.total-qty').attr('data-qty', qty)
@@ -196,13 +196,27 @@
         data: { cartQty, cartCatatan, cartKode },
         success: (res) => {
           let uri = '<?= $this->uri->segment(3); ?>';
-          let url = "<?= base_url() ?>index.php/DetailProduct/detail/" + uri
+          let url = "<?= base_url() ?>index.php/DetailProduk/detail/" + uri
           if (res === "sukses") {
-            alert('Sukses')
-            $(location).attr('href', url);
+            Swal.fire({
+              type: 'success',
+              title: 'Sukses',
+              text:'Berhasil memasukan ke keranjang',
+              showConfirmButton: false,
+              timer: 2000
+            })
+            setTimeout(() => {
+              $(location).attr('href', url);
+            }, 2000);
           } else {
-            alert('gagal')
-            $(location).attr('href', url);
+            Swal.fire({
+              type: 'error',
+              title: 'Oops...',
+              text: 'Maaf, gagal memasukan ke keranjang, silahkan coba lagi',
+            })
+            setTimeout(() => {
+              $(location).attr('href', url);
+            }, 1500);
           }
         }
       })

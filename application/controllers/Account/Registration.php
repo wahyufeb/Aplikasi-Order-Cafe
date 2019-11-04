@@ -23,10 +23,11 @@ class Registration extends CI_Controller {
     $data = array(
       'nama_lengkap' => $namaLengkap,
       'email' => $this->input->post('email'),
+      'photo' => 'user.png',
       'no_hp' => $this->input->post('no_hp'),
       'tgl_lahir' => $this->input->post('tanggal_lahir'),
       'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-      'level' => 'admin'
+      'level' => 'member'
     );
     $this->M_All->insert_to('users', $data);
     redirect('Account/Login');

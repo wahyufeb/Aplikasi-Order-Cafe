@@ -12,13 +12,15 @@
 		/>
 		<!-- css -->
 		<link rel="stylesheet" href="<?= base_url() ?>assets/styles/cart.css" />
+		<link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert/sweetalert2.min.css">
 	</head>
 
 	<body>
+		<div id="user" data-user="<?= $this->session->userdata('id_user') ?>"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-2 col-2 mt-4">
-					<a href="<?=base_url()  ?>index.php/Home"
+					<a href="<?=base_url()  ?>index.php/Beranda"
 						><img
 							src="<?= base_url() ?>assets/icon/left-arrow.png"
 							alt="left-arrow"
@@ -124,10 +126,10 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<form
-							action="<?= base_url() ?>index.php/Cart/checkout"
+						<!-- <form
+							action="<?= base_url() ?>index.php/Keranjang/Pesan"
 							method="POST"
-						>
+						> -->
 							<div class="form-group" id="data-pesanan">
 								<div class="row">
 									<div class="col-sm-7 col-7">Total</div>
@@ -147,8 +149,9 @@
 									<div class="col-sm-5 col-5">
 										<select
 											class="custom-select my-1 mr-sm-2"
-											id="inlineFormCustomSelectPref"
+											id="no_meja"
 											name="no_meja"
+											require
 										>
 											<option selected>pilih meja...</option>
 											<option value="1">1</option>
@@ -171,7 +174,7 @@
 							<button type="submit" class="btn modal-add-cart" id="add-cart">
 								PESAN SEKARANG
 							</button>
-						</form>
+						<!-- </form> -->
 					</div>
 				</div>
 			</div>
@@ -202,5 +205,70 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="<?= base_url() ?>assets/materialdesign/js/bootstrap-material-design.min.js"></script>
+		<script src="<?= base_url() ?>assets/sweetalert/sweetalert2.all.min.js"></script>
+		<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				Pusher.logToConsole = true;
+				var pusher = new Pusher("b8a3021cab51c9711d9b", {
+					cluster: "ap1",
+					forceTLS: true
+				});
+
+				var channel = pusher.subscribe("my-channel");
+				var user = <?= $this->session->userdata('id_user'); ?>;
+				channel.bind("konfirmasi", function (data) {
+					if (data.message === "konfimasi_to_"+user) {
+						Swal.fire({
+							type: 'success',
+							title: 'Terimakasih',
+							text:'Pesananmu sudah dikonfirmasi, silahkan ditunggu',
+							showConfirmButton: false,
+							timer: 2000
+						})
+					}
+				});
+				$('#add-cart').on("click", function(e){
+					e.preventDefault();
+					let cart = <?= $this->cart->total(); ?>;
+					console.log(user)
+					if (cart <= 0) {
+						Swal.fire({
+							type: 'error',
+							title: 'Oops...',
+							text: 'Maaf, Keranjang Kamu Masih Kosong',
+						})
+					}else{
+						let no_meja = $('#no_meja').val()
+						console.log(no_meja)
+						if(no_meja === "pilih meja..."){
+							Swal.fire({
+								type: 'error',
+								title: 'Oops...',
+								text: 'Maaf, No Meja Tidak Boleh Kosong',
+							})
+						}else{
+							$.ajax({
+								url:"<?= base_url() ?>index.php/Keranjang/Pesan",
+								data:{no_meja},
+								type:"POST",
+								success:()=>{
+									Swal.fire({
+										type: 'success',
+										title: 'Terimakasih',
+										text:'Pesananmu sudah terkirim, mohon tunggu konfirmasi dari Admin',
+										showConfirmButton: false,
+										timer: 2000
+									})
+									setTimeout(() => {
+										document.location.href = '<?= base_url() ?>index.php/Keranjang'
+									}, 2000);
+								}
+							})
+						}
+					}
+				})
+			})
+		</script>
 	</body>
 </html>

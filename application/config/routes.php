@@ -51,4 +51,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'Home';
 $route['404_override'] = '';
+// Auth
+$route['Auth/Masuk'] = 'Account/Login';
+$route['Auth/Daftar'] = 'Account/Registration';
+$route['Masuk/masuk_sekarang'] = 'Account/Login/login_process';
+$route['Daftar/daftar_sekarang'] = 'Account/Registration/register_process';
+
+// Route Home
+$route['Beranda'] = 'Home';
+$route['Admin'] = 'Administrator/Admin';
+
+// User Page
+$route['Beranda/pesanan'] = 'Home/pesanan';
+
+// Keranjang
+$route['Keranjang'] = 'Cart';
+
+// kategori
+$route['DaftarProduk'] = 'ListProduk';
+$route['DaftarProduk/Makanan'] = 'ListProduk/kategori/makanan';
+$route['DaftarProduk/Minuman'] = 'ListProduk/kategori/minuman';
+
+$route['DetailProduk/detail/(:any)'] = 'DetailProduct/detail/$1';
+$route['DaftarProduk/filter'] = 'ListProduk/filter';
+
+// Checkout
+$route['Keranjang/Pesan'] = 'Cart/checkout';
+
 $route['translate_uri_dashes'] = FALSE;

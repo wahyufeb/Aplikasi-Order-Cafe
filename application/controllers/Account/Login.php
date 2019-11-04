@@ -22,10 +22,10 @@ class Login extends CI_Controller {
         );
         $this->session->set_userdata($data);
         if($this->session->userdata('level') == "member"){
-          redirect('Home');
+          redirect('Beranda');
         }
         if($this->session->userdata('level') == "admin"){
-          redirect('Administrator/Admin');
+          redirect('Admin');
         }
       }else{
         echo 'gagal gan';

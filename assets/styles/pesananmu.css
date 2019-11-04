@@ -1,0 +1,19 @@
+@font-face {
+	font-family: "Poppins-Medium";
+	src: url("../fonts/poppins/Poppins-Medium.ttf");
+}
+
+@font-face {
+	font-family: "Poppins-Light";
+	src: url("../fonts/poppins/Poppins-Light.ttf");
+}
+
+#header {
+	background-color: #745ed2;
+	height: 140px;
+}
+
+.pesananmu {
+	background-color: red;
+	border-radius: 15px;
+}

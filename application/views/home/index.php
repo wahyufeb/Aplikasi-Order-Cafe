@@ -29,7 +29,7 @@
       </div>
       <ul class="list-group">
         <li class="list-group-item"><a href="<?= base_url() ?>index.php/Profile">Profile</a></li>
-        <li class="list-group-item"><a href="<?= base_url() ?>index.php/Pesanan">Pesanan</a></li>
+        <li class="list-group-item"><a href="<?= base_url() ?>index.php/Beranda/pesanan">Pesanan</a></li>
         <li class="list-group-item"><a href="<?= base_url() ?>index.php/Transaksi">Transaksi</a></li>
         <!-- <li class="list-group-item"><a href="<?= base_url() ?>index.php/Pengaturan">Pengaturan</a></li> -->
         <li class="list-group-item"><a href="<?= base_url() ?>index.php/Home/logout">Keluar</a></li>
@@ -84,10 +84,10 @@
             <div class="owl-carousel">
               <?php foreach($makananlaku as $row): ?>
               <div class="produk">
-                <a href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row['kode_menu'] ?>">
+                <a href="<?= base_url() ?>index.php/DetailProduk/detail/<?= $row['kode_menu'] ?>">
                   <img src="<?= base_url() ?>uploads/<?= $row['image'] ?>" alt="hero" height="70">
                 </a>
-                <h6 class="text-center"><a href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row['kode_menu'] ?>"><?= $row['nama'] ?></a></h6>
+                <h6 class="text-center"><a href="<?= base_url() ?>index.php/DetailProduk/detail/<?= $row['kode_menu'] ?>"><?= $row['nama'] ?></a></h6>
                 <p class="text-center">Rp. <?= number_format($row['harga'],0,',','.')?></p>
               </div>
               <?php endforeach; ?>
@@ -103,10 +103,10 @@
             <div class="owl-carousel">
               <?php foreach($minumanlaku as $row): ?>
               <div class="produk">
-                <a href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row['kode_menu'] ?>">
+                <a href="<?= base_url() ?>index.php/DetailProduk/detail/<?= $row['kode_menu'] ?>">
                 <img src="<?= base_url() ?>uploads/<?= $row['image'] ?>" alt="hero" height="70">
               </a>
-              <h6 class="text-center"><a href="<?= base_url() ?>index.php/DetailProduct/detail/<?= $row['kode_menu'] ?>"><?= $row['nama'] ?></a></h6>
+              <h6 class="text-center"><a href="<?= base_url() ?>index.php/DetailProduk/detail/<?= $row['kode_menu'] ?>"><?= $row['nama'] ?></a></h6>
               <p class="text-center">Rp. <?= number_format($row['harga'],0,',','.')?></p>
               </div>
               <?php endforeach; ?>
