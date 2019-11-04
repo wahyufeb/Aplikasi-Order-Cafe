@@ -49,7 +49,7 @@ class M_Admin extends CI_Model {
     return $this->db->get('menu')->num_rows();
   }
 
-  function bulanan($mulai, $end){
+  function hitungPendatapan($mulai, $end){
     $this->db->select('SUM(total) as jumlah');
     $this->db->where('tanggal >=', $mulai);
     $this->db->where('tanggal <=', $end);

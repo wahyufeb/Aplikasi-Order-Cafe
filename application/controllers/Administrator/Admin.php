@@ -29,17 +29,26 @@ class Admin extends CI_Controller {
     // pendapatan bulanan
     $mulai = date('01-m-y');
     $end = date('32-m-y');
-    $data['bulanan'] = $this->M_Admin->bulanan($mulai, $end)->result_array();
+    $data['bulanan'] = $this->M_Admin->hitungPendatapan($mulai, $end)->result_array();
+    // pendapatan harian
+    $hariini = date('d-m-Y 00:00:00');
+    $besok = date('d-m-Y 24:00:00');
+    $data['harian'] = $this->M_Admin->hitungPendatapan($hariini, $besok)->result_array();
+
     $this->header();
     $this->load->view('admin/index', $data);
     $this->footer();
   }
 
   function cobaa(){
-    $mulai = date('01-m-y');
-    $end = date('32-m-y');
-    $a = $this->M_Admin->bulanan($mulai, $end)->result();
-    print_r($a);
+    date_default_timezone_set('Asia/Bangkok');
+    $mulai = date('d-m-Y 00:00:00');
+    $end = date('d-m-Y 24:00:00');
+    $a = $this->M_Admin->hitungPendatapan($mulai, $end);
+    print_r($mulai);
+    echo '<br>';
+    print_r($end);
+    print_r($a->result());
   }
 
 
