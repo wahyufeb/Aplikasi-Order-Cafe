@@ -216,16 +216,19 @@
 				});
 
 				var channel = pusher.subscribe("my-channel");
-				var user = <?= $this->session->userdata('id_user'); ?>;
+				var user = <?= $this->session->userdata('id_user');?>;
 				channel.bind("konfirmasi", function (data) {
-					if (data.message === "konfimasi_to_"+user) {
-						Swal.fire({
+					if (data.message == "konfimasi_to_"+user) {
+							Swal.fire({
 							type: 'success',
 							title: 'Terimakasih',
 							text:'Pesananmu sudah dikonfirmasi, silahkan ditunggu',
 							showConfirmButton: false,
-							timer: 2000
+							timer: 3000
 						})
+						setTimeout(() => {
+							document.location.href = '<?= base_url() ?>index.php/Beranda/pesanan'
+						}, 3000);
 					}
 				});
 				$('#add-cart').on("click", function(e){
@@ -261,8 +264,8 @@
 										timer: 2000
 									})
 									setTimeout(() => {
-										document.location.href = '<?= base_url() ?>index.php/Keranjang'
-									}, 2000);
+										document.location.reload()
+									}, 1000);
 								}
 							})
 						}

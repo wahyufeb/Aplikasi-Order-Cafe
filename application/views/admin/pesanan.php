@@ -52,7 +52,7 @@
 				</div>
 				<div class="row mt-3">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-					<div class="table-responsive">
+						<div class="table-responsive">
 							<table class="table table-bordered" width="100%" cellspacing="0">
 								<thead class="thead-dark">
 									<tr>
@@ -61,6 +61,7 @@
 										<th>Nama</th>
 										<th>Harga</th>
 										<th>Jumlah</th>
+										<th>Catatan</th>
 									</tr>
 								</thead>
 								<tbody id="table-data">
@@ -213,8 +214,6 @@
 				type: "post",
 				dataType: "json",
 				success: res => {
-					console.log(data);
-					console.log(res)
 
 					for (let i = 0; i < data.length; i++) {
 						const resultData = data[i];
@@ -225,7 +224,7 @@
 						$('#telephone').text(resultData.no_hp)
 						$('#photo').html(`<img src="<?= base_url() ?>assets/photo/${resultData.photo}" alt="photo-profile" width="64" />`)
 						// button konfirmasi
-						$('#konfirmasi').html(`<a class="btn btn-primary" href="<?= base_url() ?>index.php/Administrator/Admin/konfirmasi/${resultData.id_invoice}">Konfirmasi</a>`)
+						$('#konfirmasi').html(`<a class="btn btn-primary" href="<?= base_url() ?>index.php/Administrator/Admin/konfirmasi/${resultData.id_invoice}/${resultData.id_user}">Konfirmasi</a>`)
 					}
 
 					let table = '';
@@ -238,6 +237,7 @@
 							<td>${produk.nama}</td>
 							<td>Rp. ${toRp(produk.harga)}</td>
 							<td>${produk.qty}</td>
+							<td style="font-size:14px;opacity:.7">${produk.catatan}</td>
 						</tr>
 						`
 					}

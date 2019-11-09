@@ -15,9 +15,21 @@
   <link rel="stylesheet" href="<?= base_url() ?>assets/owl/css/owl.theme.default.css">
   <!-- sweetalert -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/sweetalert/sweetalert2.min.css">
+  <style>
+    #manip{
+      width:100%;
+      height: 600%;
+      position: absolute;
+      display: none;
+      left: 0;
+      top:0;
+      z-index:1000;
+      background-color:#fff;
+    }
+  </style>
 </head>
 
-<body>
+<body id="body">
   <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
     <div id="dw-s2" class="bmd-layout-drawer bg-faded">
       <div class="row mt-4">
@@ -119,6 +131,7 @@
 </main>
 </div>
   </div>
+  <div id="manip">asda</div>
   <script src="<?= base_url() ?>assets/jquery/jquery.min.js"></script>
   <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
     integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
@@ -129,6 +142,17 @@
   <script src="<?= base_url() ?>assets/sweetalert/sweetalert2.all.min.js"></script>
   <script>
     $(document).ready(function () {
+      setInterval(() => {
+        if($(window).width() > 480){
+        $('#manip').css('display', 'block');
+        $('#manip').html(`<center>
+        <h2 style="margin-top:20%;">Maaf Halaman ini tidak kompatibel dengan layar desktop</h2>
+          <button id="sesuaikan" class="btn btn-info" onClick="openWin()" style="background-color:blue;color:#fff;">Sesuaikan</button>
+        </center>`)
+      }else{
+        $('#manip').css('display', 'none');
+      }
+      }, 10);
       $('body').bootstrapMaterialDesign();
       $(".owl-carousel").owlCarousel({
         items: 3,
@@ -147,6 +171,24 @@
         Swal.fire("Pesanan Sukses", "silahkan tunggu konfirmasi pesanan", "success");
       }
     });
+  </script>
+  <script>
+  //   setInterval(() => {
+  //   if($(window).width() > 480){
+  //     $('#manip').css('display', 'block');
+  //     $('#manip').html(`<center>
+  //     <h4 style="margin-top:50%;">Maaf Halaman ini tidak kompatibel dengan layar desktop</h4>
+  //       <button id="sesuaikan" class="btn btn-info" onClick="openWin()" style="background-color:blue;color:#fff;">Sesuaikan</button>
+  //     </center>`)
+  //   }
+  // }, 100);
+  // var myWindow;
+  // function openWin() {
+  //   let data = $('#url').data('url');
+  //   // myWindow = window.open(`<?= base_url() ?>index.php/${data}`, "", "width=100, height=100");
+  //     myWindow.resizeTo(480, 700);
+  //   myWindow.focus();
+  // }
   </script>
 </body>
 

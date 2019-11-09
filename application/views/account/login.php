@@ -21,7 +21,7 @@
 			href="<?= base_url() ?>assets/sweetalert/sweetalert2.min.css"
 		/>
 	</head>
-	<body>
+	<body onload="window.resizeTo(500,500)">
 		<div class="svg">
 			<img
 				src="<?= base_url() ?>assets/icon/right-top.svg"

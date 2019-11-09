@@ -14,6 +14,7 @@ class M_Home extends CI_Model {
   function getInvTrans($where){
     $this->db->where($where);
     $this->db->join('transaksi', 'transaksi.id_invoice = invoices.id_invoice', 'left');
+    $this->db->order_by('tanggal', 'desc');
     return $this->db->get('invoices');
   } 
 }

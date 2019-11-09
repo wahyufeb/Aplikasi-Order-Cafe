@@ -60,7 +60,7 @@ class Admin extends CI_Controller {
   }
 
   // Konfirmasi Pesanan
-  public function konfirmasi($id_invioce){
+  public function konfirmasi($id_invioce, $id_user){
     $where = array('id_invoice' => $id_invioce);
     // pusher
     require_once(APPPATH.'views/vendor/autoload.php');

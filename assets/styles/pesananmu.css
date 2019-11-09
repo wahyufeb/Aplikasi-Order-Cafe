@@ -8,12 +8,39 @@
 	src: url("../fonts/poppins/Poppins-Light.ttf");
 }
 
+h4 {
+	font-family: "Poppins-Medium";
+	margin-top: -40px;
+	margin-bottom: 30px;
+	color: #fff;
+}
 #header {
 	background-color: #745ed2;
 	height: 140px;
+	padding-top: 100px;
 }
 
 .pesananmu {
-	background-color: red;
+	background-color: #fff;
 	border-radius: 15px;
+	position: relative;
+	z-index: 10;
+	width: 100%;
+	margin-top: 10px;
+	padding: 20px;
+	box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.2);
+}
+
+.transaksi-user {
+	padding: 10px;
+	border-radius: 10px;
+	color: #fff;
+	background-color: #745ed2;
+	font-family: "Poppins-Light";
+	margin-bottom: 20px;
+	box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.2);
+}
+
+.transaksi-user h6 {
+	opacity: 0.9;
 }

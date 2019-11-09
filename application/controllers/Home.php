@@ -36,9 +36,13 @@ class Home extends CI_Controller {
 
   public function pesanan(){
     $id = $this->session->userdata('id_user');
-    $where = array('invoices.id_user' => $id);
+    $where = array(
+      'invoices.id_user' => $id,
+      'invoices.status' => 'proses'
+    );
     $data['pesananmu'] = $this->M_Home->getInvTrans($where)->result_array();
     $this->load->view('home/pesanan_user', $data);
+    // print_r($data['pesananmu']);
   }
 
   function a(){
@@ -54,6 +58,11 @@ class Home extends CI_Controller {
 
     echo $encode_id;
     echo $decrypt_id;
+  }
+
+  function logout(){
+    $this->session->sess_destroy();
+    redirect('Auth/Masuk');
   }
 
 }
